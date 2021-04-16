@@ -66,8 +66,14 @@ public class PersonService {
         if(email != null && email.length() > 0) {
             person.setEmail(email);
         }
+    }
 
-
+    public Optional<Person> getPersonById(Long personId) {
+        boolean exists = personRepository.existsById(personId);
+        if(!exists) {
+            throw new IllegalStateException("book with id " + personId + " does not exists");
+        }
+        return personRepository.findById(personId);
     }
 
 }
