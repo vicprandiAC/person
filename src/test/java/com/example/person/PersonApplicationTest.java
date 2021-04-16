@@ -3,12 +3,11 @@ package com.example.person;
 import com.example.person.person.Person;
 import com.example.person.person.PersonService;
 import io.restassured.http.ContentType;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
-import org.mockito.junit.*;
-import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -23,11 +22,8 @@ import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 
-import java.util.Optional;
-
 import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.given;
-import static org.mockito.Mockito.*;
 
 @RunWith(SpringRunner.class)
 // Cria uma porta random pra não conflitar com o servidor.
@@ -60,7 +56,7 @@ class PersonApplicationTests {
     @Test
     public void getPersonWhenUsernameAndPasswordAreIncorrectShouldReturnStatus401() {
         System.out.println(port);
-        Response response = (Response) given()
+        Response response = given()
                        .port(port)
                        .auth()
                        .basic("none", "admin")
@@ -71,7 +67,7 @@ class PersonApplicationTests {
                        .extract()
                        .response();
 
-        Assertions.assertEquals(401, response.statusCode());
+        Assert.assertEquals(401, response.statusCode());
     }
 
     @Test
@@ -165,4 +161,4 @@ class PersonApplicationTests {
         Assertions.assertEquals("vicprandi@gmail.com", response.jsonPath().getString("email"));
     }
 
-};
+}
