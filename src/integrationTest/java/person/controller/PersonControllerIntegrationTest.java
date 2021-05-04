@@ -94,7 +94,7 @@ public class PersonControllerIntegrationTest {
     }
 
     @Test
-    public void getAllStudentsWhenUsernameAndPasswordAreCorrectShouldReturnStatus200() {
+    public void getAllPersonWhenUsernameAndPasswordAreCorrectShouldReturnStatus200() {
         Mockito.when(personService.getPerson()).thenReturn(personList);
 
         Response response = RestAssured.given()
