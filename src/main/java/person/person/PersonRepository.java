@@ -1,4 +1,4 @@
-package com.example.person.person;
+package person.person;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface PersonRepository
         extends JpaRepository<Person, Long> {
 
-    @Query("SELECT s FROM Person s WHERE s.career = ?1")
+    @Query("SELECT s FROM Person s WHERE s.email = ?1")
     Optional<Person> findPersonByEmail(String email);
 
 

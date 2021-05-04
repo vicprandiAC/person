@@ -1,6 +1,5 @@
-package com.example.person.person;
+package person.person;
 
-import com.example.person.person.PersonRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,8 +19,17 @@ public class PersonConfig {
                     "vicprandi@gmail.com"
             );
 
+            Person rafael = new Person(
+                    "Rafael",
+                    32,
+                    "Software Engineer Senior",
+                    "Brown",
+                    "rprandi@gmail.com"
+            );
+
             repository.saveAll(
-                    List.of(victoria
+                    List.of(victoria,
+                            rafael
                             )
             );
         };

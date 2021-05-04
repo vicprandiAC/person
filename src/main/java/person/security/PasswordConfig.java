@@ -1,4 +1,4 @@
-package com.example.person.security;
+package person.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

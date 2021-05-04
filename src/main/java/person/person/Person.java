@@ -1,4 +1,4 @@
-package com.example.person.person;
+package person.person;
 
 import lombok.Data;
 
